@@ -4,54 +4,48 @@ import java.util.Objects;
 
 public class Vertex<T> {
     private T data;
-    private Map<Vertex<T>, Double> adjacentVertices;
+    private Map<Vertex<T>, Double> adjVertices;
 
     // Constructor with no parameters
     public Vertex() {
-        this.adjacentVertices = new HashMap<>();
+        this.adjVertices = new HashMap<>();
     }
 
     // Constructor with data parameter
     public Vertex(T data) {
         this.data = data;
-        this.adjacentVertices = new HashMap<>();
+        this.adjVertices = new HashMap<>();
     }
 
-    // Constructor with data and adjacentVertices parameters
+    // Constructor with data and adjVertices parameters
     public Vertex(T data, Map<Vertex<T>, Double> adjacentVertices) {
         this.data = data;
-        this.adjacentVertices = adjacentVertices;
+        this.adjVertices = adjacentVertices;
     }
 
-    // Getter for data
+    // Getter
     public T getData() {
         return data;
     }
 
-    // Setter for data
+    // Setter
     public void setData(T data) {
         this.data = data;
     }
 
-    // Getter for adjacentVertices
-    public Map<Vertex<T>, Double> getAdjacentVertices() {
-        return adjacentVertices;
+    // Getter for adjVertices
+    public Map<Vertex<T>, Double> getAdjVertices() {
+        return adjVertices;
     }
 
-    // Setter for adjacentVertices
-    public void setAdjacentVertices(Map<Vertex<T>, Double> adjacentVertices) {
-        this.adjacentVertices = adjacentVertices;
-    }
+
 
     // Method to add an adjacent vertex
-    public void addAdjacentVertex(Vertex<T> vertex, Double weight) {
-        this.adjacentVertices.put(vertex, weight);
+    public void addAdjVertex(Vertex<T> vertex, Double weight) {
+        this.adjVertices.put(vertex, weight);
     }
 
-    // Method to remove an adjacent vertex
-    public void removeAdjacentVertex(Vertex<T> vertex) {
-        this.adjacentVertices.remove(vertex);
-    }
+
 
     // equals method
     @Override
@@ -62,18 +56,14 @@ public class Vertex<T> {
         return Objects.equals(data, vertex.data);
     }
 
-    // hashCode method
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
-    }
+
 
     // toString method
     @Override
     public String toString() {
         return "Vertex{" +
                 "data=" + data +
-                ", adjacentVertices=" + adjacentVertices +
+                ", adjacentVertices=" + adjVertices +
                 '}';
     }
 }
